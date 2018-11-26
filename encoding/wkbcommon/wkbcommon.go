@@ -68,9 +68,9 @@ func (e ErrUnexpectedType) Error() string {
 // FIXME Consider overall per-geometry limit rather than per-level limit
 var MaxGeometryElements = [4]uint32{
 	0,
-	1 << 20, // No LineString, LinearRing, or MultiPoint should contain more than 1048576 coordinates
+	1 << 21, // No LineString, LinearRing, or MultiPoint should contain more than 1048576 coordinates (jim: updated to 21 = 2097152)
 	1 << 15, // No MultiLineString or Polygon should contain more than 32768 LineStrings or LinearRings
-	1 << 10, // No MultiPolygon should contain more than 1024 Polygons
+	1 << 15, // No MultiPolygon should contain more than 32768 Polygons
 }
 
 // An ErrGeometryTooLarge is returned when the geometry is too large.
