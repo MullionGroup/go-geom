@@ -70,7 +70,7 @@ var MaxGeometryElements = [4]uint32{
 	0,
 	1 << 21, // No LineString, LinearRing, or MultiPoint should contain more than 1048576 coordinates (jim: updated to 21 = 2097152)
 	1 << 15, // No MultiLineString or Polygon should contain more than 32768 LineStrings or LinearRings
-	1 << 15, // No MultiPolygon should contain more than 32768 Polygons
+	1 << 16, // No MultiPolygon should contain more than 1024 Polygons (jim: updated to 16 = 65536)
 }
 
 // An ErrGeometryTooLarge is returned when the geometry is too large.
